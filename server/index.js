@@ -22,14 +22,10 @@ const init = async () => {
             is_admin BOOLEAN DEFAULT FALSE
         );
 
-        INSERT INTO employees(name, is_admin) VALUES('John Doe', true)
-        INSERT INTO employees(name, is_admin) VALUES('Jane Smith', false)
-        INSERT INTO employees(name, is_admin) VALUES('Bob Johnson', false)
-
-
-    
-    
-    `;
+        INSERT INTO employees(name, is_admin) VALUES('John Doe', true);
+        INSERT INTO employees(name, is_admin) VALUES('Jane Smith', false);
+        INSERT INTO employees(name, is_admin) VALUES('Bob Johnson', false);
+`;
   await client.query(SQL);
   console.log("Tables created and data seeded successfully");
 
