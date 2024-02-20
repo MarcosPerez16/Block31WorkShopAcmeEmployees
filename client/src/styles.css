@@ -1,5 +1,13 @@
+/* I had an issue where Verdana was not rendering on the page.
+  It only rendered when I changed my href='/src/styles.css' in my index.html file 
+  to just /styles.css, but the issue was when i did that, the background color wouldn't 
+  render and only the Verdana font would work.
+  I spent forever trying to figure it out maybe it had something to do with font availability.
+  Either way I changed the font family to something different and it worked as intended.
+*/
+
 body {
-  font-family: verdana;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .loading {

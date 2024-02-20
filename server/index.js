@@ -6,9 +6,29 @@ const pg = require("pg");
 const client = new pg.Client(
   process.env.DATABASE_URL || "postgres://localhost/acme_hr_db"
 );
+
 // static routes here (you only need these for deployment)
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+//route for homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/dist/index.html"));
+});
 
 // app routes here
+app.get("/api/employees", async (req, res, next) => {
+  try {
+    const SQL = `
+            SELECT * FROM employees;
+            
+            `;
+
+    const result = await client.query(SQL);
+    res.json(result.rows);
+  } catch (error) {
+    next(error);
+  }
+});
 
 // create your init function
 const init = async () => {
